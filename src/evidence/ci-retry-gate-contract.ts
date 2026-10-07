@@ -96,8 +96,7 @@ function isHeadSha(value: unknown): value is string {
 
 function isStringArray(value: unknown): value is string[] {
 	return (
-		Array.isArray(value) &&
-		value.every((entry) => isNonEmptyString(entry))
+		Array.isArray(value) && value.every((entry) => isNonEmptyString(entry))
 	);
 }
 
@@ -128,9 +127,7 @@ function isSummary(value: unknown): value is CiRetryGateEvidenceSummaryV1 {
 	return (
 		counts.every(isNonNegativeInteger) &&
 		isNonNegativeNumber(value.durationMs) &&
-		Number(value.passed) +
-			Number(value.failed) +
-			Number(value.skipped) <=
+		Number(value.passed) + Number(value.failed) + Number(value.skipped) <=
 			Number(value.tests)
 	);
 }
