@@ -140,9 +140,7 @@ describe("CTRF to CI Retry Gate evidence adapter", () => {
 	});
 
 	it("marks summary/test-count contradiction as partial", () => {
-		const current = report([
-			{ name: "a", status: "passed", duration: 10 },
-		]);
+		const current = report([{ name: "a", status: "passed", duration: 10 }]);
 		current.results.summary.tests = 2;
 
 		const evidence = buildCiRetryGateEvidenceFromCtrf(
